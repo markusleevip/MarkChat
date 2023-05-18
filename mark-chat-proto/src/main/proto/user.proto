@@ -1,0 +1,13 @@
+syntax = "proto3";
+package com.mark.chat.pb.message;
+option java_outer_classname = "UserPB";
+
+// 请求登录
+message LoginReq {
+  int64 uid = 1;
+}
+// 响应登录
+message LoginRes {
+  int64 uid = 1;
+  string nickname = 2;
+}

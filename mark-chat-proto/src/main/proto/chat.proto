@@ -1,0 +1,36 @@
+syntax = "proto3";
+package com.mark.chat.pb.message;
+option java_outer_classname = "ChatPB";
+
+// 发送私信消息
+message SendPrivateMessageReq {
+  // 接收人ID
+  int64 toId = 1;
+  // 消息类型  1 文本消息
+  int32 msgType = 2;
+  // 消息内容
+  string body = 3;
+}
+
+// 响应发送消息
+message SendMessageRes {
+  // 消息状态 1 发送成功 2  对方不是你的好友 3 发送失败,内容不合法
+  int32 state = 1;
+}
+
+// 接收私信消息
+message ReceivePrivateMessageRes {
+  // 消息ID
+  string id = 1;
+  int32 chatType = 2;
+  // 消息类型 1 普通消息 2 系统消息
+  int32 msgType = 3;
+  // 发送人ID
+  int64 senderId = 4;
+  // 发送人名称
+  string senderName = 5;
+  // 消息内容
+  string body = 6;
+  // 发送时间 时间戳（10位）
+  int64 sendTime = 7;
+}

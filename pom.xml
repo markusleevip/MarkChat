@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<packaging>pom</packaging>
+	<groupId>com.mark</groupId>
+	<artifactId>mark-chat</artifactId>
+	<version>1.0.0</version>
+	<name>MarkChat</name>
+	<description>MarkChat</description>
+	<modules>
+		<module>mark-chat-server</module>
+		<module>mark-chat-client</module>
+		<module>mark-chat-proto</module>
+		<module>mark-chat-gateway</module>
+		<module>mark-chat-common</module>
+		<module>mark-chat-common-core</module>
+	</modules>
+	<properties>
+		<java.version>17</java.version>
+		<encoding>UTF-8</encoding>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<spring.version>6.0.8</spring.version>
+		<springboot.version>3.0.6</springboot.version>
+		<markChat.version>1.0.0</markChat.version>
+		<ioGame.version>17.1.40</ioGame.version>
+		<io-grpc.version>1.54.0</io-grpc.version>
+		<protobuf-java.version>3.21.12</protobuf-java.version>
+		<jprotobuf.version>2.4.18</jprotobuf.version>
+		<fastjson.version>2.0.23</fastjson.version>
+		<jansi.version>2.4.0</jansi.version>
+		<qdox.version>2.0.3</qdox.version>
+		<jakarta.validation-api.version>3.0.2</jakarta.validation-api.version>
+
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
+		</dependency>
+	</dependencies>
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-dependencies</artifactId>
+				<version>${springboot.version}</version>
+				<scope>import</scope>
+				<type>pom</type>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.8.1</version>
+				<configuration>
+					<source>17</source>
+					<target>17</target>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.mark</groupId>
+        <artifactId>mark-chat</artifactId>
+        <version>1.0.0</version>
+    </parent>
+
+    <artifactId>mark-chat-server</artifactId>
+
+    <properties>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>com.mark</groupId>
+            <artifactId>mark-chat-gateway</artifactId>
+            <version>${markChat.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.mark</groupId>
+            <artifactId>mark-chat-common</artifactId>
+            <version>${markChat.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.iohao.game</groupId>
+            <artifactId>bolt-broker-server</artifactId>
+            <version>${ioGame.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.iohao.game</groupId>
+                    <artifactId>common-core</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>com.mark</groupId>
+            <artifactId>mark-chat-common-core</artifactId>
+            <version>${markChat.version}</version>
+        </dependency>
+    </dependencies>
+
+</project>
