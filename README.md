@@ -26,3 +26,9 @@ https://www.yuque.com/markus/ufnllx/lyr9gv8ilerpnssa
 |30001|	发送私信|
 |30005|	接收私信|
 
+
+### 启动服务器
+运行 mark-chat-server模块下的Main方法
+
+### 启动客户端
+运行 mark-chat-client模块下的ChatClient1和ChatClient2模拟两个用户发送私信。 
