@@ -33,7 +33,7 @@ public class ChatClient1 extends Thread {
             @Override
             public void onOpen(ServerHandshake serverHandshake) {
                 System.out.println("连接成功。");
-                ByteString value = UserPB.LoginRes.newBuilder().setUid(1001).build().toByteString();
+                ByteString value = UserPB.LoginReq.newBuilder().setUid(1001).build().toByteString();
                 this.sendMsg(10003, value);
             }
 
