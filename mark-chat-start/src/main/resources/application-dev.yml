@@ -1,0 +1,21 @@
+server:
+  tomcat:
+    max-swallow-size: -1
+    connection-timeout: 5000ms
+    threads:
+      min-spare: 10
+      max: 500
+  error:
+    include-exception: true
+    include-stacktrace: ALWAYS
+    include-message: ALWAYS
+spring:
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+mark-chat:
+  enable-idle: true
+  external-port: 5050
+  gateway-port: 3030
+  enable-cluster: false
