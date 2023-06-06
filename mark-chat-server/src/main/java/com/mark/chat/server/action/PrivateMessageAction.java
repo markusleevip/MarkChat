@@ -5,6 +5,7 @@ import com.iohao.game.bolt.broker.client.kit.ExternalCommunicationKit;
 import com.iohao.game.bolt.broker.core.client.BrokerClientHelper;
 import com.mark.chat.common.cmd.CmdBroadcast;
 import com.mark.chat.common.cmd.CmdChat;
+import com.mark.chat.common.doman.dto.PrivateMessageDto;
 import com.mark.chat.common.enums.BroadcastEnum;
 import com.mark.chat.common.enums.ChatMsgTypeEnum;
 import com.mark.chat.common.enums.ChatSendStateEnum;
@@ -16,7 +17,10 @@ import com.mark.chat.common.utils.StrUtils;
 import com.iohao.game.action.skeleton.annotation.ActionController;
 import com.iohao.game.action.skeleton.annotation.ActionMethod;
 import com.iohao.game.action.skeleton.core.flow.FlowContext;
+import com.mark.chat.server.service.ChatMessageService;
+import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
 
@@ -28,8 +32,11 @@ import java.time.LocalDateTime;
  */
 @Slf4j
 @ActionController(CmdChat.cmd)
+@Component
 public class PrivateMessageAction {
 
+    @Resource
+    private ChatMessageService chatMessageService;
 
     /**
      * 发送私信
@@ -48,9 +55,16 @@ public class PrivateMessageAction {
             CmdInfo cmd = CmdInfo.getCmdInfo(CmdBroadcast.cmd, CmdBroadcast.to_user);
             // BroadcastEnum.BROADCAST_CHAT_PRIVATE_MSG.getCode()
             broadcastContext.broadcast(cmd, convertReceivePrivateMessageRes(req, context.getUserId()), req.toId, BroadcastEnum.BROADCAST_CHAT_PRIVATE_MSG.getCode());
-
+        }else {
+            chatMessageService.saveMessage(convertPrivateMessageDto(req, context.getUserId()));
         }
         return res;
+    }
+
+    private PrivateMessageDto convertPrivateMessageDto(SendPrivateMessageReq req, long senderId) {
+        return PrivateMessageDto.builder().toId(req.toId).body(req.body).senderId(senderId).sendTime(System.currentTimeMillis() / 1000)
+                .chatType(ChatTypeEnum.PRIVATE_MSG.getCode()).msgType(ChatMsgTypeEnum.TEXT.getCode()).build();
+
     }
 
     private ReceivePrivateMessageRes convertReceivePrivateMessageRes(SendPrivateMessageReq req, long uid) {

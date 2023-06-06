@@ -10,7 +10,11 @@ import com.mark.chat.common.cmd.CmdUser;
 import com.mark.chat.common.enums.ErrorMsgEnum;
 import com.mark.chat.common.pb.req.LoginReq;
 import com.mark.chat.common.pb.res.LoginRes;
+import com.mark.chat.server.service.ChatMessageService;
+import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
+import org.springframework.stereotype.Component;
 
 /**
  * @Author: Mark
@@ -18,7 +22,15 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 @ActionController(CmdUser.cmd)
+@Component
 public class UserAction {
+
+
+    @Resource
+    private ThreadPoolTaskExecutor taskExecutor;
+
+    @Resource
+    private ChatMessageService chatMessageService;
 
     @ActionMethod(CmdUser.login)
     public LoginRes login(LoginReq req, FlowContext context) {
@@ -36,6 +48,11 @@ public class UserAction {
         LoginRes res = new LoginRes();
         res.uid = req.uid;
         res.nickname = "Guest" + req.uid;
+        // 获取离线消息
+        taskExecutor.execute(() -> {
+            System.out.println("Task executed by thread: " + Thread.currentThread().getName());
+            chatMessageService.getMessage(req.uid);
+        });
         return res;
     }
 }

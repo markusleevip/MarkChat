@@ -35,6 +35,7 @@
 		<jansi.version>2.4.0</jansi.version>
 		<qdox.version>2.0.3</qdox.version>
 		<jakarta.validation-api.version>3.0.2</jakarta.validation-api.version>
+		<guava.version>31.1-jre</guava.version>
 
 	</properties>
 	<dependencies>
