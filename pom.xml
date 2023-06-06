@@ -15,9 +15,12 @@
 		<module>mark-chat-gateway</module>
 		<module>mark-chat-common</module>
 		<module>mark-chat-common-core</module>
+		<module>mark-chat-start</module>
 	</modules>
 	<properties>
 		<java.version>17</java.version>
+		<maven.compiler.source>17</maven.compiler.source>
+		<maven.compiler.target>17</maven.compiler.target>
 		<encoding>UTF-8</encoding>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -32,6 +35,7 @@
 		<jansi.version>2.4.0</jansi.version>
 		<qdox.version>2.0.3</qdox.version>
 		<jakarta.validation-api.version>3.0.2</jakarta.validation-api.version>
+		<guava.version>31.1-jre</guava.version>
 
 	</properties>
 	<dependencies>

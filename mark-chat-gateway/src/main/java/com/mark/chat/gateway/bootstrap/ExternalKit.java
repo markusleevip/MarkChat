@@ -59,7 +59,7 @@ public class ExternalKit {
         RequestMessage requestMessage = createRequestMessage(cmdMerge, data);
         HeadMetadata headMetadata = requestMessage.getHeadMetadata();
         headMetadata.setMsgId(message.getMsgId());
-
+        requestMessage.setRouteId(message.getRouteId());
         return requestMessage;
     }
 
