@@ -1,8 +1,10 @@
 # MarkChat
 MarkChat 聊天软件，使用ioGame框架
 
-## 说明文档
+## 说明文档  User manual
 https://www.yuque.com/markus/ufnllx/lyr9gv8ilerpnssa
+## 视频 Video
+https://www.bilibili.com/video/BV1ks4y1z7Uo/
 
 ## 通讯协议
 ### 客户端请求参数
