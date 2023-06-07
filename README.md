@@ -9,14 +9,14 @@ https://www.yuque.com/markus/ufnllx/lyr9gv8ilerpnssa
 
 | 名称 |	类型 | 说明 |
 | --- | ----| ----- |
-| routeId |	int (4位) |	路由ID |
+| routeId |	int32 |	路由ID |
 | data | byte[] |	消息体 |
 
 ### 服务端响应参数(包括广播消息)
 | 名称 |	类型 | 说明 |
 | --- | ---- | ------ |
-|routeId|	int (4位)|	路由ID | 
-|state|	int (4位)|	状态 0 正常, 其他为错误码|
+|routeId|	int32|	路由ID | 
+|state|	int32|	状态 0 正常, 其他为错误码|
 |data|	byte[]|	消息体|
 
 ### 路由ID 
@@ -28,7 +28,7 @@ https://www.yuque.com/markus/ufnllx/lyr9gv8ilerpnssa
 
 
 ### 启动服务器
-运行 mark-chat-server模块下的Main方法
+运行 mark-chat-start模块下的MarkChatApplication文件
 
 ### 启动客户端
 运行 mark-chat-client模块下的ChatClient1和ChatClient2模拟两个用户发送私信。 
